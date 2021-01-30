@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+    <title>Document</title>
+</head>
+<body bgcolor="#272934">
+   
+    
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyA8avcR0lCio73ov5I-Psl8Sf1nS0gBpV4",
+      authDomain: "shoot-name.firebaseapp.com",
+      projectId: "shoot-name",
+      storageBucket: "shoot-name.appspot.com",
+      messagingSenderId: "639178069170",
+      appId: "1:639178069170:web:126283cdeb2819d2dd65ab"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+   
+  </script>
+  <script>
+      function myClick() {
+  setTimeout(
+    function() {
+      document.getElementById('click').style.display='none';
+      window.location.replace('game.html')
+    }, 2500);
+}
+  </script>
+<form onsubmit="return sendMessage();">
+    <input type="text" id="message" placeholder="Enter your name" autocomplete="off">
+ 
+    <input type="submit" value="</start> " id="click" onclick="myClick()" >
+</form>
+    <center>the<br>{programmer}<br>GUY</center>
+<script>
+    function sendMessage() {
+        // get message
+        var myName = document.getElementById("message").value;
+ 
+        // save in database
+        firebase.database().ref("messages").push().set({
+            "sender": myName
+            
+        });
+ 
+        // prevent form from submitting
+        return false;
+    }
+ 
+</script>
+<style>
+       body{
+           font-family:monospace,bold;
+           font-size:200%;
+           color:white;
+       }
+    input[type=text] {
+        font-size: 100%;
+        font-family: monospace;
+        background-color: #272934;
+        color: #e7e7e7;
+        outline: none;
+        outline-style: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: solid #000000 6px;
+        padding: 0;
+        height:50px;
+        width:400px;
+        margin:auto;
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        
+    }
+    input[type=submit]{
+        height: 45px;
+        width:400px;
+        font-size: 100%;
+        font-family: monospace;
+        top:150px;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:auto;
+        padding:0;
+        position:absolute;
+        border:2px solid rgb(0, 174, 255);
+        background:rgb(0, 174, 255);
+        color:white;
+        border-radius: 4px;
+    }
+    input[type=submit]:hover{
+        height: 45px;
+        width:400px;
+        font-size: 100%;
+        font-family: monospace;
+        top:150px;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:auto;
+        padding:0;
+        position:absolute;
+        border:2px solid rgb(63, 194, 255);
+        background:rgb(63, 194, 255);
+        color:white;
+        border-radius: 4px;
+    }
+   
+        </style>
+</body>
+</html>
